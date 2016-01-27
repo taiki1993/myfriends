@@ -105,8 +105,12 @@ $dbh = null;
                 <select class="form-control" name="area_id">
                   <option value="0">出身地を選択</option>
                   <!-- 配列を回すからforeach -->
-                  <?php foreach($areas as $area){ ?>
-                  <option value="<?php echo $area['area_id']; ?>" selected><?php echo $area['area_name']; ?></option>
+                  <?php foreach($areas as $area){ 
+                    if($friends['area_id'] == $area['area_id']){ ?>
+                      <option value="<?php echo $area['area_id']; ?>" selected><?php echo $area['area_name']; ?></option>
+                    <?php  }else{ ?>
+                      <option value="<?php echo $area['area_id']; ?>"><?php echo $area['area_name']; ?></option>
+                   <?php  } ?>
                  <?php } ?>
                 </select>
               </div>
